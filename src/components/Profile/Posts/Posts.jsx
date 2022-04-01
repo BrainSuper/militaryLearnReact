@@ -9,7 +9,8 @@ const Posts = () => {
                 <textarea name="" id=""></textarea>
                 <button>Send</button>
             </form>
-            <Post/>
+            <Post message='First post'/>
+            <Post message='Second post'/>
         </div>
     )
 }

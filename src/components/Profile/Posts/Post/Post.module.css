@@ -1,14 +1,20 @@
-.post {
+.post:first-child {
     margin-top: 80px;
+}
+.post {
+    margin-top: 20px;
     display: flex;
     align-items: center;
 }
+
 .post img {
     display: block;
     width: 60px;
     height: 60px;
 }
 .post span {
+    margin: 0;
+    padding: 0;
     display: block;
     margin-left: 20px;
     font-size: 20px;
