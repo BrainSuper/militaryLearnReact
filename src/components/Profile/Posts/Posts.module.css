@@ -1,0 +1,26 @@
+.posts form {
+    width: 80%;
+}
+.posts textarea {
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    background-color: aliceblue;
+    outline: none;
+    padding: 10px 0 10px 10px;
+    font-size: 20px;
+}
+.posts button {
+    display: block;
+    margin-top: 20px;
+    float: right;
+    width: 110px;
+    height: 30px;
+    border: none;
+    background-color: forestgreen;
+    color: white;
+    text-align: left;
+    /*padding-left: 3px;*/
+    font-size: 20px;
+}

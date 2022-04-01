@@ -1,0 +1,16 @@
+.post {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+}
+.post img {
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+.post span {
+    display: block;
+    margin-left: 20px;
+    font-size: 20px;
+    color: dimgray;
+}
