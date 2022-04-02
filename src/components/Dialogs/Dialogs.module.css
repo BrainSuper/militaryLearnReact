@@ -1,0 +1,39 @@
+.dialogs h1 {
+    margin: 0;
+    padding: 0;
+}
+.dialogs__wrapper {
+    display: flex;
+    margin-top: 20px;
+}
+.dialogs__users {
+    width: 20%;
+    border-right: 2px solid black;
+}
+.dialogs__messages {
+    width: 80%;
+    margin-left: 20px;
+
+
+}
+.dialogs .user {
+    margin-bottom: 10px;
+}
+.dialogs .user a{
+    font-size: 20px;
+    color: dimgray;
+    text-decoration: none;
+}
+.dialogs__users .user a:focus {
+    color: black;
+}
+.dialogs .message {
+    width: 30%;
+    margin-bottom: 10px;
+    border: 2px solid dimgray;
+    border-radius: 5px;
+    font-size: 20px;
+    color: dimgray;
+    text-align: center;
+    padding: 10px;
+}
