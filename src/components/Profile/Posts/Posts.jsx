@@ -13,8 +13,7 @@ const Posts = () => {
                 <textarea name="" id=""></textarea>
                 <button>Send</button>
             </form>
-            <Post message={postData[0].message}/>
-            <Post message={postData[1].message}/>
+            {postData.map(post => <Post message={post.message}/>)}
         </div>
     )
 }
