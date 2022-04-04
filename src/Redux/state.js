@@ -24,4 +24,12 @@ const state = {
         ]
     }
 }
+export let addPost = (newPostText) => {
+    debugger;
+    let newPost = {
+        id: state.profilePage.postData.length + 1,
+        message: newPostText
+    }
+    state.profilePage.postData.push(newPost);
+}
  export default state;

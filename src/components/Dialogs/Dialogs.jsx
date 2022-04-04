@@ -16,6 +16,8 @@ const Dialogs = (props) => {
                     {props.dialogsPage.messageData.map(m => <Message message={m.message}/>)}
                 </div>
             </div>
+            <textarea className={classes.dialogs__send}></textarea>
+            <button>Send message</button>
 
         </div>
     )

@@ -37,3 +37,22 @@
     text-align: center;
     padding: 10px;
 }
+.dialogs__send {
+    margin-top: 20px;
+    border: 2px solid dimgray;
+    border-radius: 5px;
+    outline: none;
+    width: 400px;
+    height: 80px;
+}
+.dialogs button {
+    display: block;
+    margin-top: 10px;
+    width: 180px;
+    height: 30px;
+    border: none;
+    background-color: forestgreen;
+    color: white;
+    text-align: left;
+    font-size: 20px;
+}
