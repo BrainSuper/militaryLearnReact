@@ -4,19 +4,22 @@ import Post from "./Post/Post";
 
 const Posts = (props) => {
     let textArea = React.createRef();
-    const addPost = () => {
-        debugger;
-        let newPostText = textArea.current.value;
-        props.addPost(newPostText);
+    const addPost = (e) => {
+        e.preventDefault();
+        props.addPost();
+    }
+
+    const onPostChange = () => {
+        props.updateNewPostText(textArea.current.value);
     }
     return (
         <div className={classes.posts}>
             <h1>My posts</h1>
             <form action="">
-                <textarea ref={textArea}></textarea>
+                <textarea ref={textArea} onChange={onPostChange} value={props.profilePage.newPost}></textarea>
                 <button onClick={addPost}>Send</button>
             </form>
-            {props.postData.map(post => <Post message={post.message}/>)}
+            {props.profilePage.postData.map(post => <Post message={post.message}/>)}
         </div>
     )
 }

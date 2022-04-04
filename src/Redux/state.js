@@ -1,9 +1,12 @@
+import {rerenderEntireTree} from "./render";
+
 const state = {
     profilePage: {
         postData: [
             {id: 1, message: 'First post'},
             {id: 2, message: 'Second post'}
-        ]
+        ],
+        newPost: ''
     },
     dialogsPage: {
         dialogsData: [
@@ -24,12 +27,17 @@ const state = {
         ]
     }
 }
-export let addPost = (newPostText) => {
-    debugger;
+export let addPost = () => {
     let newPost = {
         id: state.profilePage.postData.length + 1,
-        message: newPostText
+        message: state.profilePage.newPost
     }
     state.profilePage.postData.push(newPost);
+    state.profilePage.newPost = '';
+    rerenderEntireTree(state);
+}
+export const updateNewPostText = (newPostText) => {
+    state.profilePage.newPost = newPostText;
+    rerenderEntireTree(state);
 }
  export default state;
