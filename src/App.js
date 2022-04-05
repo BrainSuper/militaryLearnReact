@@ -15,7 +15,7 @@ const App = (props) => {
         <Header/>
         <Navbar/>
         <div className='app-content'>
-            <Route path={'/profile'} render={() => <Profile profilePage={props.store.getState().profilePage} updateNewPostText={props.store.updateNewPostText.bind(props.store)} addPost={props.store.addPost.bind(props.store)}/>}/>
+            <Route path={'/profile'} render={() => <Profile profilePage={props.store.getState().profilePage} dispatch={props.store.dispatch.bind(props.store)}/>}/>
             <Route exact path={'/dialogs'} render={() => <Dialogs dialogsPage={props.store.getState().dialogsPage}/>}/>
             {/*<Profile/>*/}
             {/*<Dialogs/>*/}

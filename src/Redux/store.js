@@ -26,19 +26,20 @@ let store = {
             ]
         }
     },
-    addPost() {
-        let newPost = {
-            id: this.state.profilePage.postData.length + 1,
-            message: this.state.profilePage.newPost
-        }
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: this.state.profilePage.postData.length + 1,
+                message: this.state.profilePage.newPost
+            }
 
-        this.state.profilePage.postData.push(newPost);
-        this.state.profilePage.newPost = '';
-        this.rerenderEntireTree();
-    },
-    updateNewPostText(newPostText) {
-        this.state.profilePage.newPost = newPostText;
-        this.rerenderEntireTree();
+            this.state.profilePage.postData.push(newPost);
+            this.state.profilePage.newPost = '';
+            this.rerenderEntireTree();
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this.state.profilePage.newPost = action.newPostText;
+            this.rerenderEntireTree();
+        }
     },
     subscribe(observer) {
         this.rerenderEntireTree = observer;
