@@ -10,7 +10,7 @@ const Profile = (props) => {
                  src="https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg"
                  alt=""/><img/>
             <ProfileInfo/>
-            <PostsContainer store={props.store}/>
+            <PostsContainer />
         </div>
     )
 }
