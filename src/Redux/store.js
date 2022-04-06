@@ -33,6 +33,7 @@ let store = {
     dispatch(action) {
         profileReducer(this.state.profilePage, action);
         dialogsReducer(this.state.dialogsPage, action);
+        console.log(this.state);
         this.rerenderEntireTree();
     },
     subscribe(observer) {
