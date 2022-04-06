@@ -1,9 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
-
-
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
 
 let store = {
     state: {
@@ -35,30 +31,9 @@ let store = {
         }
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost = {
-                id: this.state.profilePage.postData.length + 1,
-                message: this.state.profilePage.newPost
-            }
-
-            this.state.profilePage.postData.push(newPost);
-            this.state.profilePage.newPost = '';
-            this.rerenderEntireTree();
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this.state.profilePage.newPost = action.newPostText;
-            this.rerenderEntireTree();
-        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-            this.state.dialogsPage.newMessage = action.newMessage;
-            this.rerenderEntireTree();
-        } else if (action.type === SEND_MESSAGE) {
-            const newMessage = {
-                id: this.state.dialogsPage.messageData.length + 1,
-                message: this.state.dialogsPage.newMessage
-            }
-            this.state.dialogsPage.newMessage = '';
-            this.state.dialogsPage.messageData.push(newMessage);
-            this.rerenderEntireTree();
-        }
+        profileReducer(this.state.profilePage, action);
+        dialogsReducer(this.state.dialogsPage, action);
+        this.rerenderEntireTree();
     },
     subscribe(observer) {
         this.rerenderEntireTree = observer;
@@ -71,9 +46,5 @@ let store = {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newPostText: text});
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})
-export const updateNewMessageBodyActionCreator = (newMessageBody) => ({type: UPDATE_NEW_MESSAGE_BODY, newMessage: newMessageBody})
 export default store;
 
