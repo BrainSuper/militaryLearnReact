@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './Profile.module.css';
-import Posts from "./Posts/Posts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import PostsContainer from "./Posts/PostsContainer";
 const Profile = (props) => {
 
     return (
@@ -10,7 +10,7 @@ const Profile = (props) => {
                  src="https://p.bigstockphoto.com/eIdTXLbqQilMs9xbjvcs_bigstock-Aerial-View-Of-Sandy-Beach-Wit-256330393.jpg"
                  alt=""/><img/>
             <ProfileInfo/>
-            <Posts profilePage={props.profilePage} dispatch={props.dispatch}/>
+            <PostsContainer store={props.store}/>
         </div>
     )
 }

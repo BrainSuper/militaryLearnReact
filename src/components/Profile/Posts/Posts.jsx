@@ -5,20 +5,20 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Red
 
 const Posts = (props) => {
     let textArea = React.createRef();
-    const addPost = (e) => {
+    const onAddPost = (e) => {
         e.preventDefault();
-        props.dispatch(addPostActionCreator());
+        props.addPost();
     }
 
     const onPostChange = () => {
-        props.dispatch(updateNewPostTextActionCreator(textArea.current.value));
+        props.postChange(textArea.current.value)
     }
     return (
         <div className={classes.posts}>
             <h1>My posts</h1>
             <form action="">
                 <textarea ref={textArea} onChange={onPostChange} value={props.profilePage.newPost}></textarea>
-                <button onClick={addPost}>Send</button>
+                <button onClick={onAddPost}>Send</button>
             </form>
             {props.profilePage.postData.map(post => <Post message={post.message}/>)}
         </div>

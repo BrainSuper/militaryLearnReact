@@ -2,16 +2,15 @@ import React from "react";
 import classes from './Dialogs.module.css';
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../Redux/dialogs-reducer";
 
 
 const Dialogs = (props) => {
     const onChangeMessage = (e) => {
-        props.dispatch(updateNewMessageBodyActionCreator(e.target.value));
+        props.changeMessage(e.target.value);
     }
-    const sendMessage = (e) => {
+    const onSendMessage = (e) => {
         e.preventDefault();
-        props.dispatch(sendMessageActionCreator());
+        props.sendMessage();
     }
     return (
         <div className={classes.dialogs}>
@@ -25,7 +24,7 @@ const Dialogs = (props) => {
                 </div>
             </div>
             <textarea className={classes.dialogs__send} onChange={onChangeMessage} value={props.dialogsPage.newMessage}></textarea>
-            <button onClick={sendMessage}>Send message</button>
+            <button onClick={onSendMessage}>Send message</button>
 
         </div>
     )
