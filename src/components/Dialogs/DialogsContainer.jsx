@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
         changeMessage: (message) => {
             dispatch(updateNewMessageBodyActionCreator(message));
         }
-        
+
     }
 }
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
