@@ -2,6 +2,8 @@ import React from "react";
 import classes from './Users.module.css';
 import userImg from '../../assets/images/user.png';
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
+import {followUnfollowAPI} from "../../api/api";
 
 const Users = (props) => {
         let pagesCount = Math.ceil(props.totalUsersCount / props.pagesCount);
@@ -25,10 +27,20 @@ const Users = (props) => {
                         </NavLink>
                         {user.followed
                             ? <button onClick={() => {
-                                props.follow(user.id, false)
+                                followUnfollowAPI.unfollow(user.id).then(response => {
+                                    if (response.resultCode === 0) {
+                                        props.follow(user.id, false)
+                                    }
+                                })
+
                             }}>Unfollow</button>
                             : <button onClick={() => {
-                                props.follow(user.id, true)
+                                followUnfollowAPI.follow(user.id).then(response => {
+                                    if (response.resultCode === 0) {
+                                        props.follow(user.id, true)
+                                    }
+
+                                })
                             }}>Follow</button>}
                     </div>
                     <div className={classes.user__descr}>
