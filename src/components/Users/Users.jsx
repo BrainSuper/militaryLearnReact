@@ -2,7 +2,6 @@ import React from "react";
 import classes from './Users.module.css';
 import userImg from '../../assets/images/user.png';
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 import {followUnfollowAPI} from "../../api/api";
 
 const Users = (props) => {
@@ -26,21 +25,27 @@ const Users = (props) => {
                             <img src={user.photos.small != null ? user.photos.small : userImg} alt=""/>
                         </NavLink>
                         {user.followed
-                            ? <button onClick={() => {
+                            ? <button disabled={props.toggleFollowingInProgress.some(id => id === user.id)} onClick={() => {
+                                props.toggleIsFollowingInProgress(user.id, true);
+                                debugger;
                                 followUnfollowAPI.unfollow(user.id).then(response => {
                                     if (response.resultCode === 0) {
-                                        props.follow(user.id, false)
+                                        props.follow(user.id, false);
                                     }
+                                    props.toggleIsFollowingInProgress(user.id, false)
                                 })
 
                             }}>Unfollow</button>
-                            : <button onClick={() => {
+                            : <button disabled={props.toggleFollowingInProgress.some(id => id === user.id)} onClick={() => {
+                                props.toggleIsFollowingInProgress(user.id, true);
+                                debugger;
                                 followUnfollowAPI.follow(user.id).then(response => {
                                     if (response.resultCode === 0) {
-                                        props.follow(user.id, true)
+                                        props.follow(user.id, true);
                                     }
-
+                                    props.toggleIsFollowingInProgress(user.id, false);
                                 })
+
                             }}>Follow</button>}
                     </div>
                     <div className={classes.user__descr}>
