@@ -3,36 +3,23 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import {
     follow,
-    setCurrentPage,
-    setTotalUsersCount,
-    setUsers, toggleIsFollowingInProgress, toggleIsFetching
+    setCurrentPage, getUsers
 } from "../../Redux/users-reducer";
-import * as axios from "axios";
 import Preloader from "../Preloader/Preloader";
-import {usersAPI} from "../../api/api";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage).then(response => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(response.items);
-            this.props.setTotalUsersCount(response.totalCount);
-        })
+        this.props.getUsers(this.props.currentPage);
     }
     onPageChange = (currentPage) => {
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(currentPage).then(response => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(response.items);
-            this.props.setCurrentPage(currentPage);
-        })
+        this.props.getUsers(currentPage);
+        this.props.setCurrentPage(currentPage);
     }
     render() {
         if (this.props.isFetching === true) {
             return <Preloader/>
         } else {
-            return <Users toggleIsFollowingInProgress={this.props.toggleIsFollowingInProgress} toggleFollowingInProgress={this.props.toggleFollowingInProgress} toggleIsFetching={this.props.toggleIsFetching} follow={this.props.follow} onPageChange={this.onPageChange} users={this.props.users} currentPage={this.props.currentPage} totalUsersCount={this.props.totalUsersCount} pagesCount={this.props.pagesCount}/>;
+            return <Users toggleFollowingInProgress={this.props.toggleFollowingInProgress} follow={this.props.follow} onPageChange={this.onPageChange} users={this.props.users} currentPage={this.props.currentPage} totalUsersCount={this.props.totalUsersCount} pagesCount={this.props.pagesCount}/>;
         }
     }
 
@@ -51,6 +38,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
-    follow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleIsFollowingInProgress
+export default connect(mapStateToProps, {follow, setCurrentPage, getUsers
 })(UsersContainer);
