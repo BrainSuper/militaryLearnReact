@@ -1,4 +1,4 @@
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
+import {authAPI} from "../api/api";
 const CHECK_AUTH = 'CHECK_AUTH';
 
 const initialState = {
@@ -23,5 +23,13 @@ const authReducer = (state = initialState, action) => {
 
 export const checkAuth = (userId, email, login) => ({type: CHECK_AUTH, data: {userId, email, login}});
 
+export const getAuthUserData = () => (dispatch) => {
+    authAPI.checkAuth().then(response => {
+        if (response.resultCode === 0) {
+            const {id, email, login} = response.data;
+            dispatch(checkAuth(id, email, login));
+        }
+    })
+}
 export default authReducer;
 
