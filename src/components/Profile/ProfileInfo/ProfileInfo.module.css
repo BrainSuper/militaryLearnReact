@@ -18,5 +18,10 @@
     font-size: 20px;
     padding-top: 5px;
     color: dimgray;
-
+}
+.profile__status {
+    margin-top: 20px;
+}
+.profile__status input {
+    display: block;
 }
