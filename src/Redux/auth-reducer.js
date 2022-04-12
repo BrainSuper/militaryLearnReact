@@ -31,5 +31,18 @@ export const getAuthUserData = () => (dispatch) => {
         }
     })
 }
+export const login = (login, password, rememberMe) => (dispatch) => {
+    authAPI.login(login, password, rememberMe).then(response => {
+        if (response.resultCode === 0) {
+            authAPI.checkAuth().then(response => {
+                if (response.resultCode === 0) {
+                    const {id, email, login} = response.data;
+                    dispatch(checkAuth(id, email, login));
+                }
+            })
+        }
+    })
+}
+
 export default authReducer;
 
