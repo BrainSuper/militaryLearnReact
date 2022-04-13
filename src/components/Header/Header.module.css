@@ -9,7 +9,12 @@
     width: 60px;
     height: 100%;
 }
-.header span {
+.header div.logout {
     font-size: 25px;
     color: white;
+    cursor: pointer;
+}
+.header div.logout:hover {
+    color: black;
+    transition: color 0.5s ease-in;
 }

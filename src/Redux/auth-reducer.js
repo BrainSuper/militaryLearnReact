@@ -1,5 +1,7 @@
 import {authAPI} from "../api/api";
+import {stopSubmit} from "redux-form";
 const CHECK_AUTH = 'CHECK_AUTH';
+const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 const initialState = {
     userId: null,
@@ -15,6 +17,11 @@ const authReducer = (state = initialState, action) => {
                 ...state,
                 ...action.data,
                 isAuth: true
+            };
+        case LOGOUT_SUCCESS:
+            return {
+                ...state,
+                isAuth: false
             }
         default:
             return state;
@@ -22,6 +29,7 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const checkAuth = (userId, email, login) => ({type: CHECK_AUTH, data: {userId, email, login}});
+export const logoutSuccess = () => ({type: LOGOUT_SUCCESS});
 
 export const getAuthUserData = () => (dispatch) => {
     authAPI.checkAuth().then(response => {
@@ -29,6 +37,15 @@ export const getAuthUserData = () => (dispatch) => {
             const {id, email, login} = response.data;
             dispatch(checkAuth(id, email, login));
         }
+    })
+}
+
+export const logout = () => (dispatch) => {
+    authAPI.logout().then(response => {
+        if (response.resultCode === 0) {
+            dispatch(logoutSuccess());
+        }
+
     })
 }
 export const login = (login, password, rememberMe) => (dispatch) => {
@@ -40,6 +57,8 @@ export const login = (login, password, rememberMe) => (dispatch) => {
                     dispatch(checkAuth(id, email, login));
                 }
             })
+        } else {
+            dispatch(stopSubmit('Login', {_error: response.messages.length > 0 ? response.messages[0] : 'some error'}))
         }
     })
 }
