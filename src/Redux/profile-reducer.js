@@ -11,7 +11,6 @@ const initialState = {
         {id: 1, message: 'First post'},
         {id: 2, message: 'Second post'}
     ],
-    newPost: '',
     profile: null,
     status: 'Hello'
 }
@@ -21,18 +20,11 @@ const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             let newPost = {
                 id: state.postData.length + 1,
-                message: state.newPost
+                message: action.newPost
             }
             return {
                 ...state,
                 postData: [...state.postData, newPost],
-                newPost: ''
-            }
-
-        case UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPost: action.newPostText
             };
         case SET_USER_PROFILE:
             return {
@@ -48,7 +40,7 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostActionCreator = (newPost) => ({type: ADD_POST, newPost});
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newPostText: text});
 export const setUserProfileSuccess = (profile) => ({type: SET_USER_PROFILE, profile});
 export const getStatusSuccess = (userId) => ({type: GET_STATUS_SUCCESS, userId});

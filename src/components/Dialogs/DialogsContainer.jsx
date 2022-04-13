@@ -12,13 +12,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        sendMessage: () => {
-            dispatch(sendMessageActionCreator());
-        },
-        changeMessage: (message) => {
-            dispatch(updateNewMessageBodyActionCreator(message));
+        sendMessage: (message) => {
+            dispatch(sendMessageActionCreator(message));
         }
-
     }
 }
 export default compose(

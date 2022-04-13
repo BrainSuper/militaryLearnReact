@@ -17,8 +17,7 @@ const initialState = {
         {id: 4, message: 'Can you help me?'},
         {id: 5, message: 'I read that.'}
 
-    ],
-    newMessage: ''
+    ]
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -26,28 +25,18 @@ const dialogsReducer = (state = initialState, action) => {
         case SEND_MESSAGE:
             const newMessage = {
                 id: state.messageData.length + 1,
-                message: state.newMessage
+                message: action.message
             }
             return {
                 ...state,
-                messageData: [...state.messageData, newMessage],
-                newMessage: ''
+                messageData: [...state.messageData, newMessage]
             };
-
-        case UPDATE_NEW_MESSAGE_BODY:
-            return {
-                ...state,
-                newMessage: action.newMessage
-            }
         default:
             return state;
     }
 }
 
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})
-export const updateNewMessageBodyActionCreator = (newMessageBody) => ({
-    type: UPDATE_NEW_MESSAGE_BODY,
-    newMessage: newMessageBody
-})
+export const sendMessageActionCreator = (message) => ({type: SEND_MESSAGE, message})
+
 export default dialogsReducer;
 

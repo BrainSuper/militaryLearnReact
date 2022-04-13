@@ -2,15 +2,23 @@ import React from "react";
 import classes from './Dialogs.module.css';
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
+import {Textarea} from "../../custom/formControl/formControls";
 
+const maxLength100 = maxLengthCreator(100);
 
+let SendMessageForm = (props) => {
+    return <form onSubmit={props.handleSubmit}>
+        <Field className={classes.dialogs__send} validate={[required, maxLength100]} type='text' name='message' component={Textarea}></Field>
+        <button>Send message</button>
+    </form>
+};
+
+SendMessageForm = reduxForm({form: 'sendMessageForm'})(SendMessageForm);
 const Dialogs = (props) => {
-    const onChangeMessage = (e) => {
-        props.changeMessage(e.target.value);
-    }
-    const onSendMessage = (e) => {
-        e.preventDefault();
-        props.sendMessage();
+    const onSendMessage = (formData) => {
+        props.sendMessage(formData.message);
     }
     return (
         <div className={classes.dialogs}>
@@ -23,8 +31,7 @@ const Dialogs = (props) => {
                     {props.dialogsPage.messageData.map(m => <Message message={m.message}/>)}
                 </div>
             </div>
-            <textarea className={classes.dialogs__send} onChange={onChangeMessage} value={props.dialogsPage.newMessage}></textarea>
-            <button onClick={onSendMessage}>Send message</button>
+            <SendMessageForm onSubmit={onSendMessage} />
 
         </div>
     )

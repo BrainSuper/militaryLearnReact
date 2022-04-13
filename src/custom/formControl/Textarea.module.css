@@ -1,0 +1,9 @@
+.error {
+    display: block;
+    color: red;
+    font-size: 15px;
+}
+.text__wrapper textarea,
+.text__wrapper input {
+    border: 2px solid red;
+}
