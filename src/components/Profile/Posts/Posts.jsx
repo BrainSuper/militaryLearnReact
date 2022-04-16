@@ -1,7 +1,6 @@
 import React from "react";
 import classes from './Posts.module.css';
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../Redux/profile-reducer";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../../utils/validators/validators";
 import {Textarea} from "../../../custom/formControl/formControls";
@@ -14,7 +13,10 @@ const AddPostForm = (props) => {
     </form>
 }
 const AddPostReduxForm = reduxForm({form: 'addPost'})(AddPostForm)
-const Posts = (props) => {
+
+const Posts = React.memo((props) => {
+    debugger;
+    console.log('RENDER');
     const onAddPost = (formData) => {
         props.addPost(formData.post);
     }
@@ -23,8 +25,9 @@ const Posts = (props) => {
         <div className={classes.posts}>
             <h1>My posts</h1>
             <AddPostReduxForm onSubmit={onAddPost}/>
-            {props.profilePage.postData.map(post => <Post message={post.message}/>)}
+            {props.postData.map(post => <Post message={post.message}/>)}
         </div>
     )
-}
+})
+
 export default Posts;
