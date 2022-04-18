@@ -75,24 +75,22 @@ export const toggleIsFetching = (toggleBoolean) => ({type: TOGGLE_IS_FETCHING, t
 export const toggleIsFollowingInProgress = (id, isFetching) => ({type: TOGGLE_IS_FOLLOWING_IN_PROGRESS, id, isFetching});
 
 export const requestUsers = (currentPage) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true));
-        usersAPI.getUsers(currentPage).then(response => {
+        let response = await usersAPI.getUsers(currentPage);
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(response.items));
             dispatch(setTotalUsersCount(response.totalCount));
-        })
     }
 }
 export const follow = (userId, boolean, ajaxType) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFollowingInProgress(userId, true));
-        followUnfollowAPI(userId, ajaxType).then(response => {
+        let response = await followUnfollowAPI(userId, ajaxType);
             if (response.resultCode === 0) {
                 dispatch(followSucces(userId, boolean));
             }
             dispatch(toggleIsFollowingInProgress(userId, false))
-        })
     }
 }
 export default usersReducer;

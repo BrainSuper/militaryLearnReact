@@ -15,7 +15,6 @@ const AddPostForm = (props) => {
 const AddPostReduxForm = reduxForm({form: 'addPost'})(AddPostForm)
 
 const Posts = React.memo((props) => {
-    debugger;
     console.log('RENDER');
     const onAddPost = (formData) => {
         props.addPost(formData.post);

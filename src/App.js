@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {BrowserRouter, Route, withRouter} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -22,18 +22,23 @@ class App extends Component {
     render() {
         if (this.props.initialized) {
             return (
+                <Router>
                     <div className="App">
                         <div className='app-wrapper'>
                             <HeaderContainer/>
                             <Navbar/>
                             <div className='app-content'>
-                                <Route path={'/profile/:userId?'} render={() => <ProfileContainer/>}/>
-                                <Route exact path={'/dialogs'} render={() => <DialogsContainer/>}/>
-                                <Route exact path={'/users'} render={() => <UsersContainer/>}/>
-                                <Route path={'/login'} render={() => <Login/>}/>
+                                    <Routes>
+                                        <Route path={'/profile/:userId'} element={<ProfileContainer/>}/>
+                                        <Route path={'/profile'} element={<ProfileContainer/>}/>
+                                        <Route path={'/dialogs'} element={<DialogsContainer/>}/>
+                                        <Route path={'/users'} element={<UsersContainer/>}/>
+                                        <Route path={'/login'} element={<Login/>}/>
+                                    </Routes>
                             </div>
                         </div>
                     </div>
+                </Router>
             )
         } else {
             return <Preloader />
@@ -43,6 +48,5 @@ class App extends Component {
 const mapStateToProps = (state) => ({initialized: state.auth.initialized})
 
 export default compose(
-    withRouter,
     connect(mapStateToProps, {initializing})
 )(App);

@@ -4,12 +4,12 @@ import {connect} from "react-redux";
 import {login} from "../../Redux/auth-reducer";
 import {Input} from "../../custom/formControl/formControls";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
-import {Redirect} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
 const maxLength30 = maxLengthCreator(30);
 
-const LoginForm = (props) => {
-    return <form onSubmit = {props.handleSubmit}>
+const LoginForm = ({error, handleSubmit}) => {
+    return <form onSubmit = {handleSubmit}>
         <div>
             <Field type="text" name='login' validate={[required, maxLength30]} component={Input}/>
         </div>
@@ -22,8 +22,8 @@ const LoginForm = (props) => {
         <div>
             <button>Submit</button>
         </div>
-        {props.error && <div>
-            {props.error}
+        {error && <div>
+            {error}
         </div>}
     </form>
 }
@@ -37,7 +37,7 @@ const Login = (props) => {
         props.login(formData.login, formData.password, formData.rememberMe);
     }
      if (props.isAuth) {
-         return <Redirect to={'/profile'}/>
+         return <Navigate to={'/profile'}/>
      } else {
          return <div>
              <h2>Login</h2>

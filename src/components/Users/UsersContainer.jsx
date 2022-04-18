@@ -7,7 +7,6 @@ import {
 } from "../../Redux/users-reducer";
 import Preloader from "../Preloader/Preloader";
 import {compose} from "redux";
-import withAuthRedirect from "../../hoc/withAuthRedirect";
 import {
     getCurrentPage,
     getIsFetching,

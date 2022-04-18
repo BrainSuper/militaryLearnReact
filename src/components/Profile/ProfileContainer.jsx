@@ -1,32 +1,39 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import * as axios from "axios";
 import {getStatus, setUserProfile, updateStatus} from "../../Redux/profile-reducer";
-import {Redirect, withRouter} from "react-router-dom";
-import {profileAPI} from "../../api/api";
-import withAuthRedirect from "../../hoc/withAuthRedirect";
+import {useParams} from "react-router-dom";
 import {compose} from "redux";
 
-class ProfileContainer extends React.Component {
-    componentDidMount() {
-        let userId = this.props.match.params.userId;
+function ProfileContainer(props) {
+    let {userId} = useParams();
+    useEffect(() => {
         if (!userId) {
-            userId = this.props.personalId
-            if (!userId) {
-                this.props.history.push('/login')
-            }
-
+        userId = props.personalId
+        if (!userId) {
+            props.history.push('/login')
         }
-        this.props.setUserProfile(userId);
-        this.props.getStatus(userId);
-    }
 
-    render() {
-        return <Profile {...this.props}/>;
     }
+    props.setUserProfile(userId);
+    props.getStatus(userId);
+
+    })
+    return <Profile {...props}/>;
 }
-
+// componentDidMount() {
+//     // let userId = this.props.match.params.userId;
+//     let userId;
+//     if (!userId) {
+//         userId = this.props.personalId
+//         if (!userId) {
+//             this.props.history.push('/login')
+//         }
+//
+//     }
+//     this.props.setUserProfile(userId);
+//     this.props.getStatus(userId);
+// }
 const mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
@@ -35,6 +42,5 @@ const mapStateToProps = (state) => ({
 
 })
 export default compose(
-    connect(mapStateToProps, {setUserProfile, getStatus, updateStatus}),
-    withRouter
+    connect(mapStateToProps, {setUserProfile, getStatus, updateStatus})
 )(ProfileContainer);

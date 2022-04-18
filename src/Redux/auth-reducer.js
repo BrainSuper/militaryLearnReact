@@ -57,16 +57,14 @@ export const getAuthUserData = () => (dispatch) => {
     })
 }
 
-export const logout = () => (dispatch) => {
-    authAPI.logout().then(response => {
+export const logout = () => async (dispatch) => {
+     let response = await authAPI.logout();
         if (response.resultCode === 0) {
             dispatch(logoutSuccess());
         }
-
-    })
 }
-export const login = (login, password, rememberMe) => (dispatch) => {
-    authAPI.login(login, password, rememberMe).then(response => {
+export const login = (login, password, rememberMe) => async (dispatch) => {
+    let response = await authAPI.login(login, password, rememberMe);
         if (response.resultCode === 0) {
             authAPI.checkAuth().then(response => {
                 if (response.resultCode === 0) {
@@ -77,7 +75,6 @@ export const login = (login, password, rememberMe) => (dispatch) => {
         } else {
             dispatch(stopSubmit('Login', {_error: response.messages.length > 0 ? response.messages[0] : 'some error'}))
         }
-    })
 }
 
 export default authReducer;
