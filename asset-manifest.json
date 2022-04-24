@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/militaryLearnReact/static/css/main.830747ab.css",
-    "main.js": "/militaryLearnReact/static/js/main.2ce9e50f.js",
+    "main.js": "/militaryLearnReact/static/js/main.71873431.js",
     "static/css/773.b984312b.chunk.css": "/militaryLearnReact/static/css/773.b984312b.chunk.css",
-    "static/js/773.6dc0fbd1.chunk.js": "/militaryLearnReact/static/js/773.6dc0fbd1.chunk.js",
+    "static/js/773.2ce0fba5.chunk.js": "/militaryLearnReact/static/js/773.2ce0fba5.chunk.js",
     "static/css/466.f05f6107.chunk.css": "/militaryLearnReact/static/css/466.f05f6107.chunk.css",
     "static/js/466.50b822b4.chunk.js": "/militaryLearnReact/static/js/466.50b822b4.chunk.js",
     "static/css/416.dff68151.chunk.css": "/militaryLearnReact/static/css/416.dff68151.chunk.css",
@@ -14,9 +14,9 @@
     "static/media/logo.svg": "/militaryLearnReact/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/militaryLearnReact/index.html",
     "main.830747ab.css.map": "/militaryLearnReact/static/css/main.830747ab.css.map",
-    "main.2ce9e50f.js.map": "/militaryLearnReact/static/js/main.2ce9e50f.js.map",
+    "main.71873431.js.map": "/militaryLearnReact/static/js/main.71873431.js.map",
     "773.b984312b.chunk.css.map": "/militaryLearnReact/static/css/773.b984312b.chunk.css.map",
-    "773.6dc0fbd1.chunk.js.map": "/militaryLearnReact/static/js/773.6dc0fbd1.chunk.js.map",
+    "773.2ce0fba5.chunk.js.map": "/militaryLearnReact/static/js/773.2ce0fba5.chunk.js.map",
     "466.f05f6107.chunk.css.map": "/militaryLearnReact/static/css/466.f05f6107.chunk.css.map",
     "466.50b822b4.chunk.js.map": "/militaryLearnReact/static/js/466.50b822b4.chunk.js.map",
     "416.dff68151.chunk.css.map": "/militaryLearnReact/static/css/416.dff68151.chunk.css.map",
@@ -25,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.830747ab.css",
-    "static/js/main.2ce9e50f.js"
+    "static/js/main.71873431.js"
   ]
 }
