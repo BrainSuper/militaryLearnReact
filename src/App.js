@@ -2,7 +2,7 @@ import React from "react";
 import logo from './logo.svg';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, HashRouter, Route, Routes} from "react-router-dom";
 // import DialogsContainer from "./components/Dialogs/DialogsContainer";
 // import UsersContainer from "./components/Users/UsersContainer";
 // import ProfileContainer from "./components/Profile/ProfileContainer";
@@ -25,7 +25,7 @@ class App extends Component {
     render() {
         if (this.props.initialized) {
             return (
-                <Router>
+                <HashRouter>
                     <div className="App">
                         <div className='app-wrapper'>
                             <HeaderContainer/>
@@ -43,7 +43,7 @@ class App extends Component {
                             </div>
                         </div>
                     </div>
-                </Router>
+                </HashRouter>
             )
         } else {
             return <Preloader />

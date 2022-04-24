@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getStatus, setUserProfile, updateStatus} from "../../Redux/profile-reducer";
+import {getStatus, setUserProfile, updatePhoto, updateStatus} from "../../Redux/profile-reducer";
 import {Navigate, useParams} from "react-router-dom";
 import {compose} from "redux";
 
@@ -20,8 +20,7 @@ function ProfileContainer(props) {
         props.getStatus(userId);
     }, [userId])
 
-
-    return <Profile {...props}/>;
+    return <Profile anotherUserId={userId} {...props}/>;
 }
 // componentDidMount() {
 //     // let userId = this.props.match.params.userId;
@@ -44,5 +43,5 @@ const mapStateToProps = (state) => ({
 
 })
 export default compose(
-    connect(mapStateToProps, {setUserProfile, getStatus, updateStatus})
+    connect(mapStateToProps, {setUserProfile, getStatus, updateStatus, updatePhoto})
 )(ProfileContainer);

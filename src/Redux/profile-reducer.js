@@ -5,6 +5,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const GET_STATUS_SUCCESS = 'GET_STATUS_SUCCESS';
 const SET_STATUS_SUCCESS = 'SET_STATUS_SUCCESS';
+const UPDATE_PHOTO_SUCCESS = 'UPDATE_PHOTO_SUCCESS';
 
 const initialState = {
     postData: [
@@ -34,6 +35,10 @@ const profileReducer = (state = initialState, action) => {
         case SET_STATUS_SUCCESS:
             return {
                 ...state, status: action.status
+            };
+        case UPDATE_PHOTO_SUCCESS:
+            return {
+                ...state, profile: {...state.profile, photos: action.photos}
             }
         default:
             return state;
@@ -45,6 +50,7 @@ export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_
 export const setUserProfileSuccess = (profile) => ({type: SET_USER_PROFILE, profile});
 export const getStatusSuccess = (userId) => ({type: GET_STATUS_SUCCESS, userId});
 export const setStatusSuccess = (status) => ({type: SET_STATUS_SUCCESS, status});
+export const updatePhotoSuccess = (photos) => ({type: UPDATE_PHOTO_SUCCESS, photos});
 
 export const getStatus = (userId) => async (dispatch) => {
     let response = await profileAPI.getStatus(userId);
@@ -55,6 +61,12 @@ export const updateStatus = (status) => async (dispatch) => {
         if (response.resultCode === 0) {
             dispatch(setStatusSuccess(status));
         }
+}
+export const updatePhoto = (photo) => async (dispatch) => {
+    let response = await profileAPI.uploadPhoto(photo);
+    if (response.resultCode === 0) {
+        dispatch(updatePhotoSuccess(response.data.photos))
+    }
 }
 export const setUserProfile = (userId) => {
     return async (dispatch) => {
