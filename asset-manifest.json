@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/it-kamasutra-deployed/static/css/main.830747ab.css",
-    "main.js": "/it-kamasutra-deployed/static/js/main.0f9f0c58.js",
-    "static/css/773.b984312b.chunk.css": "/it-kamasutra-deployed/static/css/773.b984312b.chunk.css",
-    "static/js/773.6dc0fbd1.chunk.js": "/it-kamasutra-deployed/static/js/773.6dc0fbd1.chunk.js",
-    "static/css/466.f05f6107.chunk.css": "/it-kamasutra-deployed/static/css/466.f05f6107.chunk.css",
-    "static/js/466.50b822b4.chunk.js": "/it-kamasutra-deployed/static/js/466.50b822b4.chunk.js",
-    "static/css/416.dff68151.chunk.css": "/it-kamasutra-deployed/static/css/416.dff68151.chunk.css",
-    "static/js/416.61bff76f.chunk.js": "/it-kamasutra-deployed/static/js/416.61bff76f.chunk.js",
-    "static/js/787.28cb0dcd.chunk.js": "/it-kamasutra-deployed/static/js/787.28cb0dcd.chunk.js",
-    "static/media/user.png": "/it-kamasutra-deployed/static/media/user.4e029dbf1ba7fe460a00.png",
-    "static/media/preloader.gif": "/it-kamasutra-deployed/static/media/preloader.c4cee91cd589640fd1c2.gif",
-    "static/media/logo.svg": "/it-kamasutra-deployed/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/it-kamasutra-deployed/index.html",
-    "main.830747ab.css.map": "/it-kamasutra-deployed/static/css/main.830747ab.css.map",
-    "main.0f9f0c58.js.map": "/it-kamasutra-deployed/static/js/main.0f9f0c58.js.map",
-    "773.b984312b.chunk.css.map": "/it-kamasutra-deployed/static/css/773.b984312b.chunk.css.map",
-    "773.6dc0fbd1.chunk.js.map": "/it-kamasutra-deployed/static/js/773.6dc0fbd1.chunk.js.map",
-    "466.f05f6107.chunk.css.map": "/it-kamasutra-deployed/static/css/466.f05f6107.chunk.css.map",
-    "466.50b822b4.chunk.js.map": "/it-kamasutra-deployed/static/js/466.50b822b4.chunk.js.map",
-    "416.dff68151.chunk.css.map": "/it-kamasutra-deployed/static/css/416.dff68151.chunk.css.map",
-    "416.61bff76f.chunk.js.map": "/it-kamasutra-deployed/static/js/416.61bff76f.chunk.js.map",
-    "787.28cb0dcd.chunk.js.map": "/it-kamasutra-deployed/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/militaryLearnReact/static/css/main.830747ab.css",
+    "main.js": "/militaryLearnReact/static/js/main.67227144.js",
+    "static/css/773.b984312b.chunk.css": "/militaryLearnReact/static/css/773.b984312b.chunk.css",
+    "static/js/773.6dc0fbd1.chunk.js": "/militaryLearnReact/static/js/773.6dc0fbd1.chunk.js",
+    "static/css/466.f05f6107.chunk.css": "/militaryLearnReact/static/css/466.f05f6107.chunk.css",
+    "static/js/466.50b822b4.chunk.js": "/militaryLearnReact/static/js/466.50b822b4.chunk.js",
+    "static/css/416.dff68151.chunk.css": "/militaryLearnReact/static/css/416.dff68151.chunk.css",
+    "static/js/416.61bff76f.chunk.js": "/militaryLearnReact/static/js/416.61bff76f.chunk.js",
+    "static/js/787.28cb0dcd.chunk.js": "/militaryLearnReact/static/js/787.28cb0dcd.chunk.js",
+    "static/media/user.png": "/militaryLearnReact/static/media/user.4e029dbf1ba7fe460a00.png",
+    "static/media/preloader.gif": "/militaryLearnReact/static/media/preloader.c4cee91cd589640fd1c2.gif",
+    "static/media/logo.svg": "/militaryLearnReact/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/militaryLearnReact/index.html",
+    "main.830747ab.css.map": "/militaryLearnReact/static/css/main.830747ab.css.map",
+    "main.67227144.js.map": "/militaryLearnReact/static/js/main.67227144.js.map",
+    "773.b984312b.chunk.css.map": "/militaryLearnReact/static/css/773.b984312b.chunk.css.map",
+    "773.6dc0fbd1.chunk.js.map": "/militaryLearnReact/static/js/773.6dc0fbd1.chunk.js.map",
+    "466.f05f6107.chunk.css.map": "/militaryLearnReact/static/css/466.f05f6107.chunk.css.map",
+    "466.50b822b4.chunk.js.map": "/militaryLearnReact/static/js/466.50b822b4.chunk.js.map",
+    "416.dff68151.chunk.css.map": "/militaryLearnReact/static/css/416.dff68151.chunk.css.map",
+    "416.61bff76f.chunk.js.map": "/militaryLearnReact/static/js/416.61bff76f.chunk.js.map",
+    "787.28cb0dcd.chunk.js.map": "/militaryLearnReact/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.830747ab.css",
-    "static/js/main.0f9f0c58.js"
+    "static/js/main.67227144.js"
   ]
 }
