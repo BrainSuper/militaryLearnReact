@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getStatus, setUserProfile, updateStatus} from "../../Redux/profile-reducer";
-import {useParams} from "react-router-dom";
+import {Navigate, useParams} from "react-router-dom";
 import {compose} from "redux";
 
 function ProfileContainer(props) {
@@ -11,14 +11,16 @@ function ProfileContainer(props) {
         if (!userId) {
         userId = props.personalId
         if (!userId) {
-            props.history.push('/login')
+            // props.history.push('/login')
+            return <Navigate to={'/login'}/>
         }
 
     }
-    props.setUserProfile(userId);
-    props.getStatus(userId);
+        props.setUserProfile(userId);
+        props.getStatus(userId);
+    }, [userId])
 
-    })
+
     return <Profile {...props}/>;
 }
 // componentDidMount() {

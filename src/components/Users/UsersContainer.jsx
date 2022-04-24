@@ -14,6 +14,7 @@ import {
     getToggleIsFetching,
     getTotalUsersCount, getUsers,
 } from "../../Redux/users-selectors";
+import Paginator from "../Paginator/Paginator";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -27,7 +28,10 @@ class UsersContainer extends React.Component {
         if (this.props.isFetching === true) {
             return <Preloader/>
         } else {
-            return <Users toggleFollowingInProgress={this.props.toggleFollowingInProgress} follow={this.props.follow} onPageChange={this.onPageChange} users={this.props.users} currentPage={this.props.currentPage} totalUsersCount={this.props.totalUsersCount} pagesCount={this.props.pagesCount}/>;
+            return (<>
+                <Paginator setCurrentPage={this.props.setCurrentPage} portionSize={this.props.portionSize} totalUsersCount={this.props.totalUsersCount} pagesCount={this.props.pagesCount} currentPage={this.props.currentPage} onPageChange={this.onPageChange}/>
+            <Users portionSize={this.props.portionSize} toggleFollowingInProgress={this.props.toggleFollowingInProgress} follow={this.props.follow} onPageChange={this.onPageChange} users={this.props.users} currentPage={this.props.currentPage} totalUsersCount={this.props.totalUsersCount} pagesCount={this.props.pagesCount}/>
+        </>)
         }
     }
 
@@ -42,7 +46,8 @@ const mapStateToProps = (state) => {
         pagesCount: getPagesCount(state),
         isFetching: getIsFetching(state),
         toggleIsFetching: getToggleIsFetching(state),
-        toggleFollowingInProgress: getToggleFollowingInProgress(state)
+        toggleFollowingInProgress: getToggleFollowingInProgress(state),
+        portionSize: state.usersPage.portionSize
     }
 }
 

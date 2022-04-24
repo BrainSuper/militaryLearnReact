@@ -13,7 +13,8 @@ const initialState = {
     totalUsersCount: null,
     pagesCount: 10,
     isFetching: false,
-    toggleFollowingInProgress: []
+    toggleFollowingInProgress: [],
+    portionSize: 10
 
 
 

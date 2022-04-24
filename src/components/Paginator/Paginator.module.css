@@ -1,3 +1,6 @@
 span.active {
     font-weight: bold;
 }
+.paginator {
+    height: 25px;
+}
