@@ -5,6 +5,7 @@
 .profile__img {
     display: block;
     width: 30%;
+    height: 300px;
 }
 .profile__descr {
     width: 70%;
